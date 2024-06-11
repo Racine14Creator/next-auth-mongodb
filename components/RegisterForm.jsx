@@ -75,6 +75,11 @@ export default function RegisterForm() {
             placeholder='Password'
             onChange={(e) => setPassword(e.target.value)}
           />
+          <input
+            type='file'
+            placeholder='Profile'
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button className='bg-green-600 rounded-md text-white font-bold cursor-pointer px-6 py-2'>
             Register
           </button>
