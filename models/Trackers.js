@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const trackerSchema = new mongoose.Schema({
   amount: { type: Number, required: true },
   eventCome: { type: String, required: true },
-  devise: { type: Number, required: true },
+  devise: { type: String, required: true },
   desc: { type: String, required: true },
   userId: { type: String, required: true },
 });

@@ -4,9 +4,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   const { userId, amount, eventCome, devise, desc } = await req.json();
-
-  console.log(userId, amount, desc, eventCome, devise);
-
   await connectMongoDB();
   await Tracker.create({ userId, amount, eventCome, devise, desc });
 

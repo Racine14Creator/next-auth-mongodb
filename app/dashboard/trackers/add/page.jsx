@@ -29,8 +29,7 @@ export default function AddTracker() {
       });
 
       if (res.ok) {
-        const form = e.target;
-        form.reset();
+        router.refresh();
         router.push("/dashboard/trackers");
       } else {
         console.log(res.statusText);
@@ -74,16 +73,15 @@ export default function AddTracker() {
             </select>
 
             <select
+              defaultValue={""}
               id='devise'
               onChange={(e) => setDevise(e.target.value)}
               className='rounded-md'
             >
-              <option value='' defaultValue={""}>
-                Select Devise
-              </option>
-              <option value={`Fc`}>FRW</option>
-              <option value={`Frw`}>FRW</option>
-              <option value={`$`}>Dollars</option>
+              <option>Select Devise</option>
+              <option value='Fc'>Fc congolais</option>
+              <option value='Frw'>FRW rwandais</option>
+              <option value='$'>Dollars</option>
             </select>
             <textarea
               onChange={(e) => setDesc(e.target.value)}
@@ -105,6 +103,26 @@ export default function AddTracker() {
         </div>
         <div className='flex-1 bg-black h-fit text-white rounded-md p-5'>
           <h3>Data</h3>
+          {amount && (
+            <h1 className='flex justify-between items-center text-3xl font-bold py-5'>
+              <span>Amount</span>
+              <span className='text-sm'>
+                {amount && amount} <span>{devise && devise}</span>
+              </span>
+            </h1>
+          )}
+          {eventCome && (
+            <h1 className='flex justify-between items-center text-3xl font-bold py-5'>
+              <span>Event</span>
+              <span className='text-sm'>{eventCome}</span>
+            </h1>
+          )}
+          {desc && (
+            <div className='flex flex-col py-5 border-gray-300'>
+              <span className='text-3xl font-bold'>Description</span>
+              <p className='text-sm'>{desc}</p>
+            </div>
+          )}
         </div>
       </div>
     </>
